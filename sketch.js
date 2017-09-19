@@ -10,7 +10,7 @@ function preload(){
 }
 
 function setup() {
-	createCanvas(windowWidth, windowHeight)
+	createCanvas(capture.width, windowHeight)
 	capture.hide()
 	capturing = true
 }
@@ -20,7 +20,7 @@ function draw() {
 		image(capture.get(), 0, 0)
 	} else {
 		push()
-			tint(fadeLevel, fadeLevel, fadeLevel)
+			tint(fadeLevel, fadeLevel, 255)
 			image(img ,0,0)
 		pop()
 	}
