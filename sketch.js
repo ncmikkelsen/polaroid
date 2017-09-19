@@ -16,7 +16,8 @@ function preload(){
 }
 
 function setup() {
-	createCanvas(windowWidth, windowHeight)
+	//createCanvas(windowWidth, windowHeight)
+	createCanvas(640, 480)
 	capture.hide()
 	capturing = true
 }
