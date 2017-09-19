@@ -20,7 +20,7 @@ function draw() {
 		image(capture.get(), 0, 0)
 	} else {
 		push()
-			tint(fadeLevel, fadeLevel, 255)
+			tint(fadeLevel, fadeLevel, fadeLevel)
 			image(img ,0,0)
 		pop()
 	}
