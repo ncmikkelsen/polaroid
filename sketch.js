@@ -10,8 +10,7 @@ function preload(){
 }
 
 function setup() {
-	//createCanvas(windowWidth, windowHeight)
-	createCanvas(640, 480)
+	createCanvas(windowWidth, windowHeight)
 	capture.hide()
 	capturing = true
 }
@@ -31,7 +30,7 @@ function touchStarted(){
 	if(capturing){
 		img = capture.get()
 		capture = null
-		fadeLevel = 20
+		fadeLevel = 30
 	} else {
 		capture = initCapture
 		fadeLevel = 0
