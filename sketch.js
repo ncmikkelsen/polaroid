@@ -4,6 +4,8 @@ var negimg
 var blurLevel = 3
 var fadeLevel = 0
 var capturing
+var startFade = 20
+var fadeChannge = 1
 
 function preload(){
 	capture = initCapture()
@@ -30,7 +32,7 @@ function touchStarted(){
 	if(capturing){
 		img = capture.get()
 		capture = null
-		fadeLevel = 30
+		fadeLevel = startFade
 	} else {
 		capture = initCapture
 		fadeLevel = 0
@@ -41,8 +43,8 @@ function touchStarted(){
 function deviceShaken(){
 	if(!capturing){
 		if(fadeLevel < 255){
-			fadeLevel += 1
-			fadeLevel = constrain(fadeLevel, 0, 255)
+			fadeLevel += fadeChannge
+			fadeLevel = constrain(fadeLevel, startFade, 255)
 		}
 	}	
 }
