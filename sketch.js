@@ -4,6 +4,7 @@ var negimg
 var blurLevel = 3
 var fadeLevel = 0
 var capturing
+
 function preload(){
 	capture = createCapture({
     audio: false,
@@ -33,7 +34,7 @@ function draw() {
 	}
 }
 
-function touchEnded(){
+function touchStarted(){
 	if(capturing){
 		img = capture.get()
 		fadeLevel = 20
