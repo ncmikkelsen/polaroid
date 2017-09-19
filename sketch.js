@@ -6,14 +6,7 @@ var fadeLevel = 0
 var capturing
 
 function preload(){
-	capture = createCapture({
-    audio: false,
-    video: {
-      facingMode: {
-        exact: "environment"
-      }
-    }
-  });
+	capture = initCapture()
 }
 
 function setup() {
@@ -37,8 +30,10 @@ function draw() {
 function touchStarted(){
 	if(capturing){
 		img = capture.get()
+		capture = null
 		fadeLevel = 20
 	} else {
+		capture = initCapture
 		fadeLevel = 0
 	}
 	capturing = !capturing
@@ -46,8 +41,20 @@ function touchStarted(){
 
 function deviceShaken(){
 	if(!capturing){
-		fadeLevel += 1
-		fadeLevel = constrain(fadeLevel, 0, 255)
-		console.log(fadeLevel)		
+		if(fadeLevel < 255){
+			fadeLevel += 1
+			fadeLevel = constrain(fadeLevel, 0, 255)
+		}
 	}	
+}
+
+function initCapture(){
+	return createCapture({
+    audio: false,
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }
+  });
 }
